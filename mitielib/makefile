@@ -38,6 +38,8 @@ LDFLAGS = -shared
 CC = g++
 
 HEADERS=include/mitie.h
+HEADERS_DIR=include/mitie
+HEADERS_DLIB=../dlib/dlib
 
 ####################################################
 
@@ -67,6 +69,12 @@ libmitie.a: libmitie.so
 install: all 
 	@echo copying libmitie.so and libmitie.a to $(INSTALL_PREFIX)/lib
 	@cp libmitie.so libmitie.a $(INSTALL_PREFIX)/lib/
+	@echo creating mitie
+	@mkdir -p $(INSTALL_PREFIX)/include/mitie
+	@echo copy mitie include directory
+	@cp -Rf $(HEADERS_DIR) $(INSTALL_PREFIX)/include/
+	@echo copy dlib
+	@cp -Rf $(HEADERS_DLIB) $(INSTALL_PREFIX)/include/
 	@echo copying $(HEADERS) to $(INSTALL_PREFIX)/include
 	@cp $(HEADERS) $(INSTALL_PREFIX)/include/
 
