@@ -60,6 +60,11 @@ by running:
 cd mitielib
 make
 ```
+And to install this, the following can be used:
+```
+sudo make install
+```
+
 This produces shared and static library files in the mitielib folder.  Or you can use
 CMake to compile a shared library by typing:
 ```
